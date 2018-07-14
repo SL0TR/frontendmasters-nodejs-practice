@@ -1,26 +1,20 @@
-var http = require('http');
-var fs = require('fs');
+var express = require('express');
 
-var server = http.createServer((req, res) => {
-  console.log('Request was made from: ' + req.url);
-  
-  if (req.url === '/home' || req.url === '/' ) {
+var app = express();
 
-    res.writeHead(200, {'Content-Type' : 'text/html'});
-    fs.createReadStream(__dirname + '/index.html').pipe(res);
+app.set('view engine', 'ejs');
 
-  } else if (req.url === '/api') {
-    res.writeHead(200, {'Content-Type' : 'application/json'});
-    var myObj = {
-      name: 'Mohaimin',
-      job: 'Full Stack Develioer ;)',
-      age: 24
-    }
-    res.end(JSON.stringify(myObj)); 
-  } else {
-    res.end('such page does not exist');
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
+app.get('/profile/:name', (req, res) => {
+  var data = {
+    age: 24,
+    job: 'Cyborg Ninja',
+    hobbies: ['eating', 'fighting', 'kicking ass']
   }
-})
+  res.render('profile', {person: req.params.name, data: data});
+});
 
-server.listen(3000, '127.0.0.1');
-console.log('You are now listening to port 3000'); 
+app.listen(3000);

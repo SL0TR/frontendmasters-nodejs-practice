@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/statics/nodejs.png" type="image/gif" sizes="16x16">
+  <title>Node JS!</title>
+</head>
+<body>
+  <% include partials/nav.ejs %>
+  <h1>This is the profile of <%= person %> </h1>
+  <p><strong> Age: </strong> <%= data.age %> </p>
+  <p><strong> Job: </strong> <%= data.job %> </p>
+  <h2><strong> Hobbies </h2>
+    <ul>
+      <% data.hobbies.forEach((elem) => { %>
+        <li> <%= elem %>  </li>
+     <% }) %>
+    </ul>
+</body>
+</html>
+
+<style>
+  body {
+    background: skyblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #fff;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+  }
+</style>
