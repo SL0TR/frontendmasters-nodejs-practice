@@ -16,7 +16,7 @@ var server = http.createServer((req, res) => {
       job: 'Full Stack Develioer ;)',
       age: 24
     }
-    res.end(JSON.stringify(myObj));
+    res.end(JSON.stringify(myObj)); 
   } else {
     res.end('such page does not exist');
   }

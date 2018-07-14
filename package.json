@@ -1,0 +1,22 @@
+{
+  "name": "node-js-practice",
+  "version": "1.0.0",
+  "description": "a practice app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SL0TR/practice-nodejs.git"
+  },
+  "author": "SL0TR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SL0TR/practice-nodejs/issues"
+  },
+  "homepage": "https://github.com/SL0TR/practice-nodejs#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
