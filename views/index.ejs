@@ -11,6 +11,18 @@
 <body>
   <% include partials/nav.ejs %>
   <h1>I'm a HTML File that is being served by Node.JS :D</h1>
-  <p>How fucking cool is this that I can do this with JavaScript</p>
+  <p>How cool is this that I can do this with JavaScript</p>
+  <br>
+  <form id="contact-form" action="/" method="POST">
+    <label for="who">Who do you want to contact</label>
+    <input type="text" name="who" value="<%= qs.person %>">
+    <br>
+    <br>
+    <label for="department">Which Department</label>
+    <input type="text" name="department"  value="<%= qs.dept %>">
+    <br>
+    <br>
+    <input type="submit" value="submit">
+  </form>
 </body>
-</html>
+</html
