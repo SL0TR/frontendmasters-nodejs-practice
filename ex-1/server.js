@@ -3,8 +3,9 @@
 // it should then send back jsonData on a GET to /data
 
 var jsonData = {
-  count: 13, 
-  message: 'hey'
+  count: 1, 
+  message: 'hey man, this is my message yo',
+  lama: 12
 };
 
 
