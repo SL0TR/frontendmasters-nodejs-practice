@@ -21,7 +21,25 @@ app.use(bodyParser.json());
 var lions = [];
 var id = 0;
 
-// TODO: make the REST routes to perform CRUD on lions
+app.get('/lions', function(req, res){
+  res.json(lions)
+})
+
+app.get('/lions/:id', function(req, res){
+  var lion = _.find(lions, {id: req.params.id})
+  res.json(lion || {})
+})
+
+app.post('/lions', function(req, res){
+  var lion = req.body
+  id++
+  lion.id = id + ''
+  lions.push(lion)
+  res.json(lion)
+  console.log(lions)
+})
+
+// app.put('lions/:')
 
 app.listen(3000);
 console.log('on port 3000');
