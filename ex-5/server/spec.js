@@ -35,7 +35,6 @@ describe('[LIONS]', function(){
       .expect(201)
       .end(function(err, resp) {
         expect(resp.body).to.be.an('object');
-        // expect(resp.body).to.eql(lion);
         done();
       })
   })
