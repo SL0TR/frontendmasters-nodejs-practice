@@ -19,6 +19,72 @@ describe('[LIONS]', function(){
         done();
       })
   });
+
+  it('should create a lion', function(done) {
+    var lion = {
+      name: 'Mufasa',
+      age: 100,
+      pride: 'Evil Lions',
+      gender: 'male',
+    }
+    request(app)
+      .post('/lions')
+      .send()
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(201)
+      .end(function(err, resp) {
+        expect(resp.body).to.be.an('object');
+        // expect(resp.body).to.eql(lion);
+        done();
+      })
+  })
+
+  it('should delete a lion', function(done) {
+    request(app)
+      .post('/lions')
+      .send({
+        name: 'Mufasa',
+        age: 100,
+        pride: 'Evil Lions',
+        gender: 'male',
+      })
+      .set('Accept', 'application/json')
+      .end(function(err, res) {
+        var lion = res.body;
+        request(app)
+          .delete('/lions/' + lion.id)
+          .end(function(err, res) {
+            expect(res.body).to.eql(lion);
+            done();
+          })
+      })
+  })
+
+  it('should update a lion', function(done) {
+    request(app)
+      .post('/lions')
+      .send({
+        name: 'Mufasa',
+        age: 100,
+        pride: 'Evil Lions',
+        gender: 'male',
+      })
+      .set('Accept', 'application/json')
+      .end(function(err, res) {
+        var lion = res.body;
+        request(app)
+          .put('/lions/' + lion.id)
+          .send({
+            name: 'new name'
+          })
+          .end(function(err, res) {
+            expect(res.body.name).to.eql('new name');
+            done();
+          })
+      })
+  })
+
 });
 
 
